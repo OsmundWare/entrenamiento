@@ -52,7 +52,8 @@ class TerceroController extends Controller
      */
     public function show($id)
     {
-        //
+        $terceros = Tercero::find($id);
+        return view('terceros.show',compact('terceros'));
     }
 
     /**

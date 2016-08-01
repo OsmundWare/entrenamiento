@@ -89,6 +89,8 @@ class TerceroController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $terceros=Tercero::find($id);
+        $terceros->delete();
+        return redirect("terceros");
     }
 }

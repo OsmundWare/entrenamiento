@@ -16,6 +16,7 @@
                         <th>Telefono</th>
                         <th>Email</th>
                         <th>Notas</th>
+                        <th>Aciones</th>
                     </tr>
 
             </thead>
@@ -32,6 +33,11 @@
                     <td> {{ $tercero->telefono }}</td>
                     <td> {{ $tercero->email }}</td>
                     <td> {{ $tercero->notas }}</td>
+                    <td>
+                        <a href="../public/terceros/{{$tercero->id}}/edit" class="btn btn-warning">Editar</a>
+                        <a href="../public/terceros/{{$tercero->id}}" class="btn btn-success">Detalles</a>
+
+                    </td>
 
 
             </tbody>

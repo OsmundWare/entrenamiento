@@ -21,3 +21,19 @@ Route::controllers([
 ]);
 
 Route::resource('terceros','TerceroController');
+
+Route::group(['middleware'=>['auth','alumnos'],'prefix'=>'alumnos'],function(){
+
+        Route::get('/',function (){
+
+            return view('terceros.inndex');
+    });
+
+});
+
+Route::group(['middleware'=>['auth','director'],'prefix'=>'director'],function(){
+    Route::get('/',function (){
+
+        return view('terceros.create');
+    });
+});

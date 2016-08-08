@@ -29,13 +29,38 @@ class CreateTerceroRequest extends Request
 
         $tercero = Tercero::find($this->terceros);
 
-        return [
-            'nit'=>'required|min:4|unique:terceros,nit,'.$tercero->id,
-            'nombre'=>'required|min:3',
-            'rol'=>'required',
-            'direccion'=>'required',
-            'telefono'=>'required'
-        ];
+        switch($this->method())
+        {
+            case 'GET':
+            case 'DELETE':
+            {
+                return [];
+            }
+            case 'POST':
+            {
+                return [
+                    'nit'=>'required|min:4|unique:terceros,nit',
+                    'nombre'=>'required|min:3',
+                    'rol'=>'required',
+                    'direccion'=>'required',
+                    'telefono'=>'required'
+                ];
+            }
+            case 'PUT':
+            case 'PATCH':
+            {
+                return [
+                    'nit'=>'required|min:4|unique:terceros,nit,'.$tercero->id,
+                    'nombre'=>'required|min:3',
+                    'rol'=>'required',
+                    'direccion'=>'required',
+                    'telefono'=>'required'
+                ];
+            }
+            default:break;
+        }
+
+
 
     }
 }

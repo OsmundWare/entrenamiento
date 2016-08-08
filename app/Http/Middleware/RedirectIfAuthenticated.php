@@ -35,7 +35,25 @@ class RedirectIfAuthenticated
     public function handle($request, Closure $next)
     {
         if ($this->auth->check()) {
-            return redirect('/');
+            switch($this->auth->user()->idrol)
+            {
+                case '1':
+                    return redirect()->to('alumnos');
+                    break;
+
+                case '2':
+                    return redirect()->to('director');
+                    break;
+
+                case'3':
+                    return redirect()->to('profesor');
+                    break;
+
+                default:
+                    return redirect()->to('login');
+                    break;
+
+            }
         }
 
         return $next($request);

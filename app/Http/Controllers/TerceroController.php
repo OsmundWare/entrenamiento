@@ -16,6 +16,12 @@ class TerceroController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
         $terceros= Tercero::orderBy('id','asc')->paginate();
@@ -77,6 +83,7 @@ class TerceroController extends Controller
      */
     public function update($id,CreateTerceroRequest $request)
     {
+
         $terceros = Tercero::find($id);
         $terceros->update($request->all());
         return redirect('terceros');

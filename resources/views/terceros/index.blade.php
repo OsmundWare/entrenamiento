@@ -1,4 +1,4 @@
-@extends('app')
+@extends('inicio.navegador')
 
 @section('content')
 

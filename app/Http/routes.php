@@ -21,12 +21,15 @@ Route::controllers([
 ]);
 
 Route::resource('terceros','TerceroController');
+Route::resource('alumno','AlumnoController');
+Route::resource('decano','DirectorController');
+Route::resource('docente','ProfesorController');
 
 Route::group(['middleware'=>['auth','alumnos'],'prefix'=>'alumnos'],function(){
 
         Route::get('/',function (){
 
-            return view('terceros.inndex');
+            return view('alumno.index');
     });
 
 });
@@ -34,6 +37,13 @@ Route::group(['middleware'=>['auth','alumnos'],'prefix'=>'alumnos'],function(){
 Route::group(['middleware'=>['auth','director'],'prefix'=>'director'],function(){
     Route::get('/',function (){
 
-        return view('terceros.create');
+        return view('director.index');
+    });
+});
+
+Route::group(['middleware'=>['auth','profesor'],'prefix'=>'profesor'],function(){
+    Route::get('/',function (){
+
+        return view('profesor.index');
     });
 });

@@ -29,8 +29,8 @@ class AuthController extends Controller
      * @return void
      */
 
-    protected $redirectTo = '/';
 
+    protected $redirectPath = '/';
 
 
 

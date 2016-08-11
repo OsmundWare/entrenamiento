@@ -45,5 +45,6 @@ class Director
                 break;
 
         }
+        return $next($request);
     }
 }

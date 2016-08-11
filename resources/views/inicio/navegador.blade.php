@@ -46,7 +46,7 @@
 
         <!-- logout button -->
         <div id="logout" class="btn-header transparent pull-right">
-            <span> <a href="{!! URL::to('logout') !!}" title="Sign Out" data-action="userLogout" data-logout-msg="¿Está seguro que desea cerrar su sesión?"><i class="fa fa-sign-out"></i></a> </span>
+            <span> <a href="{!! URL::to('/auth/logout') !!}" title="Sign Out" data-action="userLogout" data-logout-msg="¿Está seguro que desea cerrar su sesión?"><i class="fa fa-sign-out"></i></a> </span>
         </div>
         <!-- end logout button -->
 
